@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+	<a class="navbar-brand" href="#">HOMEPAGE</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="{% url 'createquestion' %}">Add Question <span class="sr-only">(current)</span></a>
+			</li>	
+		</ul>
+	</div>
+</nav>
+
+
+<div class="container main-body" style="margin-top:5px">
+	<div class="alert alert-success">
+		<h1>Welcome to the frontend test page for Learn Code Online QnA!</h1>
+		<p style="font-weight:bold;text-decoration:underline;font-style:italic">The page is completely responisve and device ready and will not loose grace on any device! You can add new question from either the admin panel at the endpoint /admin or from the Add Question from the navbar! You can also add more languages from the admin panel where the admin panel ins fully integrated with the web application! Any desired can be added to this application if desired! HOPE YOU ENJOY THE FLOW!</p>
+	</div>
+
+
+
+	<div class="container jumbotron app-content">
+		{% for object in object_list  %}
+		<h1 style="text-decoration:underline;font-weight:bold">{{object.title}}</h1>
+		<h1 style="text-decoration:underline;font-weight:bold">Q{{forloop.counter}}. {{object.question}}</h1>
+		<h2>Description: {{object.description}}</h2>
+		<h2 style="font-weight:bold;text-decoration:underline;font-style:italic">ANSWER</h2>
+		<div class="row">
+			<div class="col-6">
+				<h3>JAVA</h3>
+				<pre>{{object.java_code}}</pre>
+			</div>
+			<div class="col-6">
+				<h3>C</h3>
+				<pre>{{object.c_code}}</pre>
+			</div>
+		</div><hr>
+		{% endfor %}
+
+	</div>
+
+
+
+
+
+
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+
+{% block content %}
+
+<div class="container jumbotron">
+	<h2 class="alert-success">Welcom to add question section. You can either add questions from or access complete app from the admin panel with the endpoint /admin. This app is just for testing purposes. many more features may be added along the way as desired!</h2>
+	<form method="post">
+
+		{% csrf_token %}
+
+		{% bootstrap_form form %}
+
+		<button type="submit" class="btn btn-success btn-lg">Submit</button>
+	</form>
+
+</div>
+
+
+
+
+
+{% endblock content %}
